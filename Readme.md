@@ -54,7 +54,7 @@ Examples:
 * `createObject('box', {width: 250, height: 20, x: 450, y: 250, angle: 0.7853982, friction: 0.2})`
 * `createObject('box', {width: 40, height: 40, x: 20, y: 20, data: {name: 'obstacle'}})`
 
-## Manipulate Objects
+### Manipulate Objects
 The returned object of `createObject(..)` is of type `b2Body`.
 A more complete documentation can be found at http://www.box2dflash.org/docs/2.1a/reference/Box2D/Dynamics/b2Body.html.
 Here are the most useful functions for those objects:
@@ -69,11 +69,11 @@ Examples (starting point `var object = createObject('box', {type: 'dynamic', ...
 * `object.SetUserData({name: 'player'});`: Sets a named array with custom information for the object.
 * `console.log(object.GetUserData()['name']);`: Prints `player` (the previously set custom value)
 
-## Destroy Objects
+### Destroy Objects
 To destroy/remove an object, you have to call `world.DestroyBody(object);`
 _Please note that `object` refers to the variable in the example section above!_
 
-## Detect collisions
+### Detect collisions
 The following classes are needed:
 * Class `b2Contact`: The class manages contact between two shapes. ([Documentation](http://www.box2dflash.org/docs/2.1a/reference/Box2D/Dynamics/Contacts/b2Contact.html))
   * `GetFixtureA()`: Returns the `b2Fixture` of object A
@@ -87,3 +87,8 @@ The following classes are needed:
 * Class `b2ContactImpulse`: Contact impulses for reporting. Impulses are used instead of forces. ([Documentation](http://www.box2dflash.org/docs/2.1a/reference/Box2D/Dynamics/b2ContactImpulse.html))
   * `impulse.normalImpulses`: Array of different impulses applied to this object in normal direction.
   * `impulse.tangentImpulses`: Array of different impulses applied to this object in tangential direction.
+
+There are tree prepared function you can use to do your collision detection:
+* `beginContact(b2Contact contact)`: This function is called when two objects begin to touch eachother.
+* `endContact(b2Contact contact)`: This function is called when two objects move away from eachother
+* `postSolveContact(b2Contact contact, b2ContactImpulse impulse)`: This function is called after the physical influence of the contact of two objects has been calculated. This function is always called after `endContact(..)`!
