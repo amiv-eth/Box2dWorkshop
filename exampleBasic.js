@@ -24,6 +24,7 @@ var world;
 var updateInterval;
 var paused;
 var worldScale;
+var contactListener;
 
 // =============================
 // ADD YOUR CODE BELOW THIS LINE
@@ -56,6 +57,22 @@ function createBall() {
 	ball.SetAngularVelocity(Math.random()*8-4);
 }
 
+// This function is called when two objects begin to touch eachother
+function beginContact(contact) {
+	// Place your code here...
+}
+
+// This function is called when two objects move away from eachother
+function endContact(contact) {
+	// Place your code here...
+}
+
+// This function is called after the physical influence of the contact 
+// of two objects has been calculated after endContact has been called.
+function postSolveContact(contact, impulse) {
+	// Place your code here...
+}
+
 // ======================================
 // DO NOT CHANGE ANYTHING BELOW THIS LINE
 //   UNLESS YOU KNOW WHAT YOU ARE DOING
@@ -64,6 +81,10 @@ function createBall() {
 $(document).ready(function() {
 	canvas = $('#gameArea');
 	context = canvas[0].getContext("2d");
+	contactListener = new b2ContactListener
+	contactListener.BeginContact = beginContact;
+	contactListener.EndContact = endContact;
+	contactListener.PostSolve = postSolveContact;
 	worldScale = 30;
 	paused = false;
 	$('#buttonPause').click(function() {
@@ -157,6 +178,7 @@ function initializeInternal() {
 	debugDrawObj.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit);
 	world = new b2World(gravity, true);
 	world.SetDebugDraw(debugDrawObj);
+	world.SetContactListener(contactListener);
 	initialize();
 	start();
 }
