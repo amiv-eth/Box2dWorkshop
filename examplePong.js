@@ -89,9 +89,9 @@ function update() {
 }
 
 function createBall() {
-	ball = createObject('circle', {width:40, height:40, x:450, y:300, restitution:1, friction:0.2,type:'dynamic', data:{name:'ball'}});
-	//body.SetSleepingAllowed(false);
-	return ball;
+	var body = createObject('circle', {width:40, height:40, x:450, y:300, restitution:1, friction:0.2,type:'dynamic', data:{name:'ball'}});
+	body.SetBullet(true);
+	return body;
 }
 
 function startRound() {
@@ -110,28 +110,7 @@ function startRound() {
 
 // This function is called when two objects begin to touch eachother
 function beginContact(contact) {
-	var fixtureA = contact.GetFixtureA();
-	var fixtureB = contact.GetFixtureB();
-	var roundFinished = false;
-	if ((fixtureA.GetBody().GetUserData()['name'] == 'ball' && fixtureB.GetBody().GetUserData()['name'] == 'hiddenWall1') || (fixtureB.GetBody().GetUserData()['name'] == 'ball' && fixtureA.GetBody().GetUserData()['name'] == 'hiddenWall1')) {
-		player2Points++;
-		roundFinished = true;
-	}
-	
-	if ((fixtureA.GetBody().GetUserData()['name'] == 'ball' && fixtureB.GetBody().GetUserData()['name'] == 'hiddenWall2') || (fixtureB.GetBody().GetUserData()['name'] == 'ball' && fixtureA.GetBody().GetUserData()['name'] == 'hiddenWall2')) {
-		player1Points++;
-		roundFinished = true;
-	}
-	
-	if (roundFinished) {
-		ball.SetAwake(false);
-		ball.SetActive(false);
-		ball.SetLinearVelocity(new b2Vec2(0,0));
-		ball.SetAngularVelocity(0);
-		ball.SetPosition(new b2Vec2(450, 300));
-		setTimeout(startRound, 1000);
-	}
-	
+	// Place your code here...
 }
 
 // This function is called when two objects move away from eachother
@@ -142,7 +121,26 @@ function endContact(contact) {
 // This function is called after the physical influence of the contact 
 // of two objects has been calculated after endContact has been called.
 function postSolveContact(contact, impulse) {
-	// Place your code here...
+	var fixtureA = contact.GetFixtureA();
+	var fixtureB = contact.GetFixtureB();
+	var roundFinished = false;
+	if (fixtureB.GetBody().GetUserData()['name'] == 'hiddenWall1' || fixtureA.GetBody().GetUserData()['name'] == 'hiddenWall1') {
+		player2Points++;
+		roundFinished = true;
+	}
+	
+	if (fixtureB.GetBody().GetUserData()['name'] == 'hiddenWall2' || fixtureA.GetBody().GetUserData()['name'] == 'hiddenWall2') {
+		player1Points++;
+		roundFinished = true;
+	}
+	
+	if (roundFinished) {
+		setTimeout(function() { 
+			world.DestroyBody(ball);
+			ball = createBall();
+			setTimeout(startRound, 1000);
+		}, 100);
+	}
 }
 
 // ======================================
