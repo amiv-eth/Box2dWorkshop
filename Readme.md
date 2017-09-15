@@ -8,7 +8,9 @@ The world has a size of `900px x 600px`. Placing objects outside of this area is
 The file `script.js` contains all the logic for the application. It contains some empty functions:
 * `initialize()`: This function is called only once at startup. Use it to initialize your world (e.g. static boundaries).
 * `update()`: This function is called with every frame (approx. every 17ms). Use it to update the dynamic behavior of the objects or to place/remove some objects at runtime.
-* `beginContact(contact)`: 
+* `beginContact(contact)`: This function is called once two objects start touching each other.
+* `endContact(contact)`: This function is called once two objects stop touching each other.
+* `postSolveContact(contact, impulse)`: This function is called once the physical impact of the collision has been calculcated. It is always called after `endContact(contact)`.
 
 ## Getting started
 ### Run an example
