@@ -23,6 +23,8 @@ The file `script.js` contains all the logic for the application. It contains som
 2. Complete the functions `initialize()` and `update()` in the file `script.js` with your own code.
 3. Open `index.html` in your prefered browser and see the magic happen.
 
+## Create your own code
+
 ### Gravity
 You can define the gravity vector on line 32 as follows (where `x` and `y` are real numbers):
 
