@@ -1,0 +1,20 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 20 Sep 2017 21:44:51 at http://www.box2dflash.org/docs/2.1a/reference/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://www.box2dflash.org/docs/2.1a/reference/ -O1 "D:\AMIV\Box2dWorkshop\Docs\Box2dWebDocs" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+21:45:33	Error: 	"Not Found" (404) at link www.box2dflash.org/docs/2.1a/reference/package-use.html (from www.box2dflash.org/docs/2.1a/reference/title-bar.html)
+21:46:13	Error: 	"Not Found" (404) at link www.box2dflash.org/docs/2.1a/reference/Box2D/Common/Math./class-list.html (from www.box2dflash.org/docs/2.1a/reference/all-index-A.html)
+21:46:13	Error: 	"Not Found" (404) at link www.box2dflash.org/docs/2.1a/reference/Box2D/Dynamics./class-list.html (from www.box2dflash.org/docs/2.1a/reference/all-index-A.html)
+21:46:13	Error: 	"Not Found" (404) at link www.box2dflash.org/docs/2.1a/reference/Box2D/Dynamics/Controllers./class-list.html (from www.box2dflash.org/docs/2.1a/reference/all-index-A.html)
+21:46:15	Error: 	"Not Found" (404) at link www.box2dflash.org/docs/2.1a/reference/Box2D/Dynamics/Contacts./class-list.html (from www.box2dflash.org/docs/2.1a/reference/all-index-B.html)
+21:46:15	Error: 	"Not Found" (404) at link www.box2dflash.org/docs/2.1a/reference/Box2D/Collision./class-list.html (from www.box2dflash.org/docs/2.1a/reference/all-index-C.html)
+21:46:15	Error: 	"Not Found" (404) at link www.box2dflash.org/docs/2.1a/reference/Box2D/Collision/Shapes./class-list.html (from www.box2dflash.org/docs/2.1a/reference/all-index-C.html)
+21:46:15	Error: 	"Not Found" (404) at link www.box2dflash.org/docs/2.1a/reference/Box2D/Dynamics/Joints./class-list.html (from www.box2dflash.org/docs/2.1a/reference/all-index-C.html)
+21:46:15	Error: 	"Not Found" (404) at link www.box2dflash.org/docs/2.1a/reference/Box2D/Common./class-list.html (from www.box2dflash.org/docs/2.1a/reference/all-index-D.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 24 seconds : 258 links scanned, 248 files written (2138687 bytes overall) [462099 bytes received at 5501 bytes/sec], 2138323 bytes transferred using HTTP compression in 248 files, ratio 17%, 64.5 requests per connection
+(9 errors, 0 warnings, 0 messages)
