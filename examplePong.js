@@ -56,14 +56,14 @@ function initialize() {
 	started = false;
 	
 	// capture keyboard inputs
-	$(document).keydown(function(event)
+	$(document).keypress(function(event)
 	{
 		if (!paused) {
-			if (event.keyCode == 38) { // arrow up
+			if (event.keyCode == 111) { // o
 				var currentPosition = player2.GetPosition();
 				currentPosition.y = (currentPosition.y > 88/worldScale) ? currentPosition.y-18/worldScale : 70/worldScale;
 				player2.SetPosition(currentPosition);
-			} else if (event.keyCode == 40) { // arrow down
+			} else if (event.keyCode == 108) { // l
 				var currentPosition = player2.GetPosition();
 				currentPosition.y = (currentPosition.y < 512/worldScale) ? currentPosition.y+18/worldScale : 530/worldScale;
 				player2.SetPosition(currentPosition);
